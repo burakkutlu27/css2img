@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Gradient to Image Converter</title>
+    <meta name="description"
+        content="CSS gradyan kodlarınızı yüksek çözünürlüklü PNG veya JPG görsellerine dönüştürün.">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'inter': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: {
+                            900: '#0a0a0f',
+                            800: '#12121a',
+                            700: '#1a1a24',
+                            600: '#22222e',
+                            500: '#2a2a38',
+                        },
+                        accent: {
+                            primary: '#8b5cf6',
+                            secondary: '#a78bfa',
+                            glow: '#c4b5fd',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-dark-900 text-gray-100 font-inter min-h-screen">
+    <!-- Background Gradient Decoration -->
+    <div class="fixed inset-0 overflow-hidden pointer-events-none">
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"></div>
+        <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-indigo-600/20 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Main Container -->
+    <div class="relative z-10 container mx-auto px-4 py-8 max-w-7xl">
+
+        <!-- Language Switcher -->
+        <div
+            class="absolute top-4 right-4 flex items-center gap-1 bg-dark-800/80 backdrop-blur-sm rounded-lg p-1 border border-dark-600">
+            <button id="langTR" onclick="switchLanguage('tr')"
+                class="px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 bg-purple-600 text-white">
+                TR
+            </button>
+            <button id="langEN" onclick="switchLanguage('en')"
+                class="px-3 py-1.5 text-sm font-medium rounded-md transition-all duration-200 bg-dark-700 text-gray-400 hover:text-white">
+                EN
+            </button>
+        </div>
+
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <div class="inline-flex items-center gap-3 mb-4">
+                <div
+                    class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center shadow-lg shadow-purple-500/25">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                </div>
+                <h1
+                    class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 bg-clip-text text-transparent">
+                    CSS2Image
+                </h1>
+            </div>
+            <p id="headerDescription" class="text-gray-400 text-lg max-w-3xl mx-auto">
+                CSS gradyan kodlarınızı yüksek çözünürlüklü <span class="text-purple-400 font-medium">PNG</span> veya
+                <span class="text-indigo-400 font-medium">JPG</span> görsellerine dönüştürün.
+            </p>
+        </header>
+
+        <!-- Error Message -->
+        <div id="errorMessage" class="hidden max-w-4xl mx-auto mb-6">
+            <div class="bg-red-500/10 border border-red-500/30 rounded-xl p-4 flex items-center gap-3">
+                <svg class="w-5 h-5 text-red-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                <p id="errorText" class="text-red-300 text-sm"></p>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <main class="grid lg:grid-cols-2 gap-8">
+
+            <!-- Left Panel - Settings -->
+            <section class="space-y-6">
+                <div class="bg-dark-800/80 backdrop-blur-xl rounded-2xl border border-dark-600 p-6 shadow-xl">
+                    <h2 id="settingsTitle" class="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                        <span>Ayarlar</span>
+                    </h2>
+
+                    <!-- CSS Code Input -->
+                    <div class="mb-6">
+                        <label id="cssLabel" for="cssInput" class="block text-sm font-medium text-gray-300 mb-2">
+                            CSS Gradyan Kodu
+                        </label>
+                        <textarea id="cssInput" rows="6"
+                            class="w-full bg-dark-700 border border-dark-500 rounded-xl px-4 py-3 text-gray-100 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all duration-200 resize-none font-mono text-sm"
+                            placeholder="background: linear-gradient(90deg, #667eea, #764ba2);">background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);</textarea>
+                        <p id="exampleText" class="mt-2 text-xs text-gray-500">
+                            Örnek: <code class="text-purple-400">linear-gradient(90deg, red, blue)</code>
+                        </p>
+                    </div>
+
+                    <!-- Dimensions -->
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div>
+                            <label id="widthLabel" for="widthInput"
+                                class="block text-sm font-medium text-gray-300 mb-2">
+                                Genişlik (px)
+                            </label>
+                            <div class="number-input-wrapper">
+                                <input type="number" id="widthInput" value="1920" min="100" max="7680"
+                                    class="w-full bg-dark-700 border border-dark-500 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all duration-200">
+                                <div class="number-input-controls">
+                                    <button type="button" onclick="incrementInput('widthInput')"
+                                        aria-label="Artır">▲</button>
+                                    <button type="button" onclick="decrementInput('widthInput')"
+                                        aria-label="Azalt">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <label id="heightLabel" for="heightInput"
+                                class="block text-sm font-medium text-gray-300 mb-2">
+                                Yükseklik (px)
+                            </label>
+                            <div class="number-input-wrapper">
+                                <input type="number" id="heightInput" value="1080" min="100" max="7680"
+                                    class="w-full bg-dark-700 border border-dark-500 rounded-xl px-4 py-3 text-gray-100 focus:outline-none focus:ring-2 focus:ring-purple-500/50 focus:border-purple-500 transition-all duration-200">
+                                <div class="number-input-controls">
+                                    <button type="button" onclick="incrementInput('heightInput')"
+                                        aria-label="Artır">▲</button>
+                                    <button type="button" onclick="decrementInput('heightInput')"
+                                        aria-label="Azalt">▼</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Preset Sizes -->
+                    <div class="mb-6">
+                        <label id="quickSizesLabel" class="block text-sm font-medium text-gray-300 mb-2">
+                            Hızlı Boyutlar
+                        </label>
+                        <div id="presetContainer" class="flex flex-wrap gap-2">
+                            <button onclick="setSize(1080, 1080)" data-size="1080x1080"
+                                class="preset-btn">1080×1080</button>
+                            <button onclick="setSize(1280, 720)" data-size="1280x720"
+                                class="preset-btn">1280×720</button>
+                            <button onclick="setSize(1920, 1080)" data-size="1920x1080"
+                                class="preset-btn">1920×1080</button>
+                            <button onclick="setSize(2560, 1440)" data-size="2560x1440" class="preset-btn">2K</button>
+                            <button onclick="setSize(3840, 2160)" data-size="3840x2160" class="preset-btn">4K</button>
+                            <button onclick="setSize(7680, 4320)" data-size="7680x4320" class="preset-btn">8K</button>
+                        </div>
+                    </div>
+
+                    <!-- Output Format -->
+                    <div class="mb-6">
+                        <label id="outputFormatLabel" class="block text-sm font-medium text-gray-300 mb-2">
+                            Çıktı Formatı
+                        </label>
+                        <div class="flex gap-4">
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input type="radio" name="format" value="png" checked
+                                    class="w-4 h-4 text-purple-500 bg-dark-700 border-dark-500 focus:ring-purple-500/50">
+                                <span class="text-gray-300 group-hover:text-white transition-colors">PNG</span>
+                                <span id="pngDesc" class="text-xs text-gray-500">(Şeffaflık desteği)</span>
+                            </label>
+                            <label class="flex items-center gap-3 cursor-pointer group">
+                                <input type="radio" name="format" value="jpg"
+                                    class="w-4 h-4 text-purple-500 bg-dark-700 border-dark-500 focus:ring-purple-500/50">
+                                <span class="text-gray-300 group-hover:text-white transition-colors">JPG</span>
+                                <span id="jpgDesc" class="text-xs text-gray-500">(Daha küçük boyut)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Download Button -->
+                    <button id="downloadBtn"
+                        class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white font-semibold py-4 px-6 rounded-xl transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center gap-3">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path>
+                        </svg>
+                        <span id="downloadBtnText">Görseli İndir</span>
+                    </button>
+                </div>
+
+                <!-- Example Gradients -->
+                <div class="bg-dark-800/80 backdrop-blur-xl rounded-2xl border border-dark-600 p-6 shadow-xl">
+                    <h3 id="exampleGradientsTitle"
+                        class="text-lg font-semibold text-white mb-4 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01">
+                            </path>
+                        </svg>
+                        <span>Örnek Gradyanlar</span>
+                    </h3>
+                    <div class="grid grid-cols-3 gap-3">
+                        <button onclick="setGradient('linear-gradient(135deg, #667eea 0%, #764ba2 100%)')"
+                            class="gradient-example"
+                            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"
+                            title="Purple Dream"></button>
+                        <button onclick="setGradient('linear-gradient(90deg, #fc466b, #3f5efb)')"
+                            class="gradient-example" style="background: linear-gradient(90deg, #fc466b, #3f5efb);"
+                            title="Pink Sunset"></button>
+                        <button onclick="setGradient('linear-gradient(45deg, #00c9ff, #92fe9d)')"
+                            class="gradient-example" style="background: linear-gradient(45deg, #00c9ff, #92fe9d);"
+                            title="Ocean Breeze"></button>
+                        <button onclick="setGradient('radial-gradient(circle, #ff9a9e 0%, #fecfef 100%)')"
+                            class="gradient-example"
+                            style="background: radial-gradient(circle, #ff9a9e 0%, #fecfef 100%);"
+                            title="Soft Pink"></button>
+                        <button
+                            onclick="setGradient('conic-gradient(from 0deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000)')"
+                            class="gradient-example"
+                            style="background: conic-gradient(from 0deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);"
+                            title="Rainbow"></button>
+                        <button onclick="setGradient('linear-gradient(180deg, #0f0c29, #302b63, #24243e)')"
+                            class="gradient-example"
+                            style="background: linear-gradient(180deg, #0f0c29, #302b63, #24243e);"
+                            title="Dark Night"></button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel - Preview -->
+            <section class="lg:sticky lg:top-8 self-start">
+                <div class="bg-dark-800/80 backdrop-blur-xl rounded-2xl border border-dark-600 p-6 shadow-xl">
+                    <h2 id="livePreviewTitle" class="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+                        <svg class="w-5 h-5 text-indigo-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                            </path>
+                        </svg>
+                        <span>Canlı Önizleme</span>
+                    </h2>
+
+                    <!-- Preview Container -->
+                    <div class="relative bg-dark-700 rounded-xl p-4 overflow-hidden">
+                        <!-- Checkerboard Background -->
+                        <div class="absolute inset-4 checkerboard rounded-lg"></div>
+
+                        <!-- Preview Box -->
+                        <div id="previewBox"
+                            class="relative w-full aspect-video rounded-lg shadow-2xl transition-all duration-300"
+                            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    </div>
+
+                    <!-- Dimension Info -->
+                    <div class="mt-4 flex items-center justify-between text-sm text-gray-400">
+                        <span id="dimensionInfo">1920 × 1080 px</span>
+                        <span id="aspectRatio">16:9</span>
+                    </div>
+                </div>
+
+                <!-- Tips -->
+                <div class="mt-6 bg-dark-800/50 backdrop-blur-xl rounded-xl border border-dark-600/50 p-4">
+                    <h4 id="tipsTitle" class="text-sm font-medium text-gray-300 mb-2 flex items-center gap-2">
+                        <svg class="w-4 h-4 text-yellow-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z">
+                            </path>
+                        </svg>
+                        <span>İpuçları</span>
+                    </h4>
+                    <ul class="text-xs text-gray-500 space-y-1">
+                        <li id="tip1">• <code class="text-purple-400">linear-gradient</code>, <code
+                                class="text-purple-400">radial-gradient</code> ve <code
+                                class="text-purple-400">conic-gradient</code> desteklenir.</li>
+                        <li id="tip2">• Maksimum çözünürlük: 7680×7680 piksel</li>
+                        <li id="tip3">• PNG formatı şeffaflık için, JPG daha küçük dosya boyutu için uygundur.</li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Hidden Canvas for Rendering -->
+    <canvas id="renderCanvas" class="hidden"></canvas>
+
+    <!-- html2canvas Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,317 @@
+/* CSS Gradient to Image Converter - Custom Styles */
+
+/* Smooth Scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #12121a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #2a2a38;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #3a3a48;
+}
+
+/* Textarea Custom Scrollbar */
+textarea::-webkit-scrollbar {
+    width: 6px;
+}
+
+textarea::-webkit-scrollbar-thumb {
+    background: #3a3a48;
+    border-radius: 3px;
+}
+
+/* Checkerboard Pattern for Transparency */
+.checkerboard {
+    background-image:
+        linear-gradient(45deg, #1a1a24 25%, transparent 25%),
+        linear-gradient(-45deg, #1a1a24 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #1a1a24 75%),
+        linear-gradient(-45deg, transparent 75%, #1a1a24 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+    background-color: #22222e;
+}
+
+/* Preset Size Buttons */
+.preset-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #a1a1aa;
+    background-color: #1a1a24;
+    border: 1px solid #2a2a38;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.preset-btn:hover {
+    color: #ffffff;
+    background-color: #22222e;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.preset-btn.selected {
+    color: #ffffff;
+    background-color: #22222e;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.2);
+}
+
+.preset-btn:active {
+    transform: scale(0.95);
+}
+
+/* Gradient Example Buttons */
+.gradient-example {
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 0.75rem;
+    border: 2px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+.gradient-example:hover {
+    transform: scale(1.05);
+    border-color: #8b5cf6;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 0 0 2px rgba(139, 92, 246, 0.3);
+}
+
+.gradient-example:active {
+    transform: scale(0.95);
+}
+
+/* Modern Number Input Wrapper */
+.number-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.number-input-wrapper input[type="number"] {
+    appearance: textfield;
+    -moz-appearance: textfield;
+    padding-right: 2.5rem;
+}
+
+.number-input-wrapper input[type="number"]::-webkit-inner-spin-button,
+.number-input-wrapper input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.number-input-controls {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.number-input-controls button {
+    width: 24px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #2a2a38 0%, #1a1a24 100%);
+    border: 1px solid #3a3a48;
+    border-radius: 4px;
+    color: #a1a1aa;
+    cursor: pointer;
+    transition: all 0.15s ease;
+    font-size: 10px;
+    line-height: 1;
+}
+
+.number-input-controls button:hover {
+    background: linear-gradient(135deg, #8b5cf6 0%, #6366f1 100%);
+    border-color: #8b5cf6;
+    color: #ffffff;
+}
+
+.number-input-controls button:active {
+    transform: scale(0.9);
+}
+
+/* Input Number Spinners - Hide default */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    appearance: textfield;
+}
+
+/* Radio Button Custom Styling */
+input[type="radio"] {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid #3a3a48;
+    border-radius: 50%;
+    background-color: #1a1a24;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+input[type="radio"]:checked {
+    border-color: #8b5cf6;
+    background-color: #1a1a24;
+}
+
+input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 0.625rem;
+    height: 0.625rem;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #8b5cf6, #6366f1);
+}
+
+input[type="radio"]:hover {
+    border-color: #8b5cf6;
+}
+
+input[type="radio"]:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.3);
+}
+
+/* Code Tag Styling */
+code {
+    padding: 0.125rem 0.375rem;
+    background-color: #1a1a24;
+    border-radius: 0.25rem;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.7;
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Error Message Animation */
+#errorMessage:not(.hidden) {
+    animation: fadeIn 0.3s ease-out;
+}
+
+/* Download Button Loading State */
+#downloadBtn.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+#downloadBtn.loading svg {
+    animation: pulse 1s infinite;
+}
+
+/* Focus Visible Styles */
+*:focus-visible {
+    outline: 2px solid #8b5cf6;
+    outline-offset: 2px;
+}
+
+/* Selection Color */
+::selection {
+    background-color: rgba(139, 92, 246, 0.4);
+    color: #ffffff;
+}
+
+/* Preview Box Shadow */
+#previewBox {
+    box-shadow:
+        0 20px 25px -5px rgba(0, 0, 0, 0.3),
+        0 10px 10px -5px rgba(0, 0, 0, 0.2),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+/* Glass Effect Enhancement */
+.backdrop-blur-xl {
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+}
+
+/* Smooth Transitions for All Interactive Elements */
+button,
+input,
+textarea,
+select {
+    transition: all 0.2s ease;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 640px) {
+    .preset-btn {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.6875rem;
+    }
+
+    .gradient-example {
+        border-radius: 0.5rem;
+    }
+}
+
+/* Print Styles */
+@media print {
+    body {
+        background: white;
+        color: black;
+    }
+
+    #downloadBtn,
+    .gradient-example,
+    .preset-btn {
+        display: none;
+    }
+}
