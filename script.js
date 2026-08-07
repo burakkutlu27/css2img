@@ -4,10 +4,10 @@
 
 const translations = {
     tr: {
-        documentTitle: 'CSS2Image — CSS Gradyanı PNG/JPG Dönüştürücü',
-        metaDescription: 'CSS gradyanlarını (linear, radial, conic) yüksek çözünürlüklü PNG veya JPG görsele dönüştürün. Ücretsiz, reklamsız, tarayıcıda çalışır.',
-        ogDescription: 'CSS gradyanı yapıştır, çözünürlüğü seç, net PNG veya JPG indir. Ücretsiz tarayıcı aracı — kayıt yok.',
-        tagline: 'CSS gradyanını yüksek çözünürlüklü PNG veya JPG olarak indir.',
+        documentTitle: 'CSS2Image — CSS Gradyanını PNG/JPG Görsel Olarak İndir',
+        metaDescription: 'CSS to image: linear, radial veya conic gradyan kodunu yapıştırıp gerçek PNG veya JPG indir — sadece CSS kopyalama değil. Ücretsiz, 8K’ya kadar, tarayıcıda.',
+        ogDescription: 'CSS gradyanı yapıştır, çözünürlüğü seç, PNG veya JPG indir. Kod kopyalatan üreteçlerden farklı — ücretsiz tarayıcı aracı.',
+        tagline: 'CSS gradyanını PNG veya JPG olarak indir — sadece kod kopyalama değil.',
         settings: 'Ayarlar',
         cssGradientCode: 'CSS Gradyan Kodu',
         cssPlaceholder: 'background: linear-gradient(90deg, #0d7a72, #1a3a4a);',
@@ -28,7 +28,20 @@ const translations = {
         tip1: '<code>linear-gradient</code>, <code>radial-gradient</code> ve <code>conic-gradient</code> desteklenir.',
         tip2: 'Maksimum çözünürlük: 7680×4320 (8K)',
         tip3: 'PNG formatı şeffaflık için, JPG daha küçük dosya boyutu için uygundur.',
-        footer: 'CSS2Image — tarayıcıda çalışan CSS gradyan dışa aktarıcı',
+        learnTitle: 'CSS to image: gerçek PNG/JPG indir',
+        learnLead: 'Çoğu CSS gradyan aracı sadece renk seçtirip kod kopyalatır. CSS2Image farklıdır: gradyan kodunu yapıştırır, çözünürlük seçer ve görseli PNG veya JPG dosyası olarak indirirsin.',
+        howTitle: 'Nasıl kullanılır?',
+        howStep1: 'CSS <code>linear-gradient</code>, <code>radial-gradient</code> veya <code>conic-gradient</code> kodunu yapıştır.',
+        howStep2: 'Genişlik ve yüksekliği seç (1080p’den 8K’ya kadar).',
+        howStep3: 'PNG veya JPG seçip Görseli İndir’e tıkla — tarayıcıda, kayıt olmadan.',
+        faqTitle: 'Sık sorulanlar',
+        faqQ1: 'CSS gradyan üreteçlerinden farkı ne?',
+        faqA1: 'Üreteçler genelde sadece CSS kopyalatır. CSS2Image gradyanı gerçek PNG veya JPG dosyasına dönüştürür; arka plan, sosyal görsel veya tasarım varlığı olarak kullanabilirsin.',
+        faqQ2: 'CSS gradyanını PNG olarak indirebilir miyim?',
+        faqA2: 'Evet. Kodu yapıştır, boyutu seç, PNG’yi işaretle ve indir. linear, radial ve conic gradyanlar desteklenir.',
+        faqQ3: 'Üyelik veya sunucuya yükleme var mı?',
+        faqA3: 'Hayır. Ücretsiz, reklamsız ve tamamen istemci tarafında çalışır; kodun cihazından çıkmaz.',
+        footer: 'CSS2Image — CSS to image: tarayıcıda PNG/JPG indir',
         previewAria: 'Gradyan önizlemesi',
         errorNoGradient: 'Geçerli bir gradyan kodu bulunamadı. linear-gradient, radial-gradient veya conic-gradient kullanın.',
         errorInvalidSyntax: 'Gradyan kodu geçersiz. Söz dizimini kontrol edin.',
@@ -37,10 +50,10 @@ const translations = {
         confirmLarge: 'Bu çözünürlük cihaz belleğini zorlayabilir. Yine de devam edilsin mi?'
     },
     en: {
-        documentTitle: 'CSS2Image — CSS Gradient to PNG/JPG Converter',
-        metaDescription: 'Convert CSS gradients (linear, radial, conic) into high-resolution PNG or JPG images. Free, ad-free, runs in your browser — no signup.',
-        ogDescription: 'Paste a CSS gradient, set resolution, download a crisp PNG or JPG. Free browser tool — no ads, no signup.',
-        tagline: 'Turn a CSS gradient into a high-resolution PNG or JPG.',
+        documentTitle: 'CSS2Image — Download CSS Gradient as PNG or JPG Image',
+        metaDescription: 'CSS to image download: paste linear, radial, or conic gradient code and export a real PNG or JPG — not just copy CSS. Free, up to 8K, runs in your browser.',
+        ogDescription: 'Paste CSS gradient code and download a real PNG or JPG. Unlike generators that only copy code — free browser export up to 8K.',
+        tagline: 'Turn CSS into a downloadable PNG or JPG — not just copy-paste code.',
         settings: 'Settings',
         cssGradientCode: 'CSS Gradient Code',
         cssPlaceholder: 'background: linear-gradient(90deg, #0d7a72, #1a3a4a);',
@@ -61,7 +74,20 @@ const translations = {
         tip1: '<code>linear-gradient</code>, <code>radial-gradient</code>, and <code>conic-gradient</code> are supported.',
         tip2: 'Maximum resolution: 7680×4320 (8K)',
         tip3: 'Use PNG for transparency, JPG for smaller files.',
-        footer: 'CSS2Image — client-side CSS gradient exporter',
+        learnTitle: 'CSS to image: download a real PNG or JPG',
+        learnLead: 'Most CSS gradient tools only let you pick colors and copy code. CSS2Image is different: paste your gradient, choose a size, and download an actual PNG or JPG file.',
+        howTitle: 'How to use it',
+        howStep1: 'Paste CSS <code>linear-gradient</code>, <code>radial-gradient</code>, or <code>conic-gradient</code> code.',
+        howStep2: 'Pick width and height (from 1080p up to 8K).',
+        howStep3: 'Choose PNG or JPG and click Download Image — in the browser, no signup.',
+        faqTitle: 'FAQ',
+        faqQ1: 'How is this different from CSS gradient generators?',
+        faqA1: 'Generators usually only copy CSS. CSS2Image turns your gradient into a real PNG or JPG you can use as a background, social graphic, or design asset.',
+        faqQ2: 'Can I download a CSS gradient as a PNG?',
+        faqA2: 'Yes. Paste the code, set the size, select PNG, and download. Linear, radial, and conic gradients are supported.',
+        faqQ3: 'Do I need an account or upload my CSS?',
+        faqA3: 'No. It is free, ad-free, and fully client-side — your code never leaves your device.',
+        footer: 'CSS2Image — CSS to image: download PNG/JPG in the browser',
         previewAria: 'Gradient preview',
         errorNoGradient: 'No valid gradient found. Use linear-gradient, radial-gradient, or conic-gradient.',
         errorInvalidSyntax: 'Invalid gradient syntax. Please check your code.',
@@ -142,6 +168,16 @@ function updateUILanguage() {
         tipsTitle: 'tips',
         tip2: 'tip2',
         tip3: 'tip3',
+        learnTitle: 'learnTitle',
+        learnLead: 'learnLead',
+        howTitle: 'howTitle',
+        faqTitle: 'faqTitle',
+        faqQ1: 'faqQ1',
+        faqA1: 'faqA1',
+        faqQ2: 'faqQ2',
+        faqA2: 'faqA2',
+        faqQ3: 'faqQ3',
+        faqA3: 'faqA3',
         footerText: 'footer'
     };
 
@@ -162,8 +198,10 @@ function updateUILanguage() {
         exampleText.append(code);
     }
 
-    const tip1 = document.getElementById('tip1');
-    if (tip1) tip1.innerHTML = t('tip1');
+    ['tip1', 'howStep1', 'howStep2', 'howStep3'].forEach((id) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = t(id);
+    });
 
     const previewBox = document.getElementById('previewBox');
     if (previewBox) previewBox.setAttribute('aria-label', t('previewAria'));

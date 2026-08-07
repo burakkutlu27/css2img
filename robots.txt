@@ -2,3 +2,6 @@ User-agent: *
 Allow: /
 
 Sitemap: https://css2img.vercel.app/sitemap.xml
+
+# AI / LLM discovery
+# https://css2img.vercel.app/llms.txt

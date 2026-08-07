@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>CSS2Image — CSS Gradient to PNG/JPG Converter</title>
+    <title>CSS2Image — Download CSS Gradient as PNG or JPG Image</title>
     <meta name="description"
-        content="Convert CSS gradients (linear, radial, conic) into high-resolution PNG or JPG images. Free, ad-free, runs in your browser — no signup.">
+        content="CSS to image download: paste linear, radial, or conic gradient code and export a real PNG or JPG — not just copy CSS. Free, up to 8K, runs in your browser.">
     <meta name="keywords"
-        content="CSS gradient to image, CSS to PNG, linear-gradient export, radial-gradient PNG, conic-gradient JPG, background generator">
+        content="css to image, css to image download, css gradient to png, css gradient to jpg, download css gradient, linear-gradient to image, css background export">
     <meta name="author" content="Burak Kutlu">
     <meta name="robots" content="index, follow">
     <meta name="theme-color" content="#0D7A72">
@@ -19,23 +19,23 @@
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="CSS2Image">
     <meta property="og:url" content="https://css2img.vercel.app/">
-    <meta property="og:title" content="CSS2Image — CSS Gradient to PNG/JPG Converter">
+    <meta property="og:title" content="CSS2Image — Download CSS Gradient as PNG or JPG Image">
     <meta property="og:description"
-        content="Paste a CSS gradient, set resolution, download a crisp PNG or JPG. Free browser tool — no ads, no signup.">
+        content="Paste CSS gradient code and download a real PNG or JPG. Unlike generators that only copy code — free browser export up to 8K.">
     <meta property="og:image" content="https://css2img.vercel.app/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:alt" content="CSS2Image — CSS Gradient to PNG/JPG">
+    <meta property="og:image:alt" content="CSS2Image — CSS to image download">
     <meta property="og:locale" content="en_US">
     <meta property="og:locale:alternate" content="tr_TR">
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="CSS2Image — CSS Gradient to PNG/JPG Converter">
+    <meta name="twitter:title" content="CSS2Image — Download CSS Gradient as PNG or JPG Image">
     <meta name="twitter:description"
-        content="Paste a CSS gradient, set resolution, download a crisp PNG or JPG. Free browser tool.">
+        content="CSS to image: paste a gradient, pick size, download PNG or JPG. Free — no signup.">
     <meta name="twitter:image" content="https://css2img.vercel.app/og-image.jpg">
-    <meta name="twitter:image:alt" content="CSS2Image — CSS Gradient to PNG/JPG">
+    <meta name="twitter:image:alt" content="CSS2Image — CSS to image download">
 
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="favicon.svg">
@@ -51,28 +51,84 @@
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "WebApplication",
-      "name": "CSS2Image",
-      "alternateName": "CSS Gradient to Image Converter",
-      "url": "https://css2img.vercel.app/",
-      "description": "Convert CSS gradient code into high-resolution PNG or JPG images directly in the browser.",
-      "applicationCategory": "DesignApplication",
-      "operatingSystem": "Any",
-      "browserRequirements": "Requires JavaScript and HTML5 Canvas",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "featureList": [
-        "linear-gradient, radial-gradient, and conic-gradient support",
-        "Custom resolution up to 8K",
-        "PNG and JPG export",
-        "Live preview",
-        "Turkish and English UI"
-      ],
-      "inLanguage": ["en", "tr"],
-      "isAccessibleForFree": true
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://css2img.vercel.app/#organization",
+          "name": "CSS2Image",
+          "url": "https://css2img.vercel.app/",
+          "logo": "https://css2img.vercel.app/favicon.svg",
+          "description": "Browser tool that downloads CSS gradients as PNG or JPG images.",
+          "founder": {
+            "@type": "Person",
+            "name": "Burak Kutlu"
+          }
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://css2img.vercel.app/#website",
+          "url": "https://css2img.vercel.app/",
+          "name": "CSS2Image",
+          "publisher": { "@id": "https://css2img.vercel.app/#organization" },
+          "inLanguage": ["en", "tr"]
+        },
+        {
+          "@type": "WebApplication",
+          "@id": "https://css2img.vercel.app/#app",
+          "name": "CSS2Image",
+          "alternateName": ["CSS to Image", "CSS Gradient to PNG", "CSS Gradient Download"],
+          "url": "https://css2img.vercel.app/",
+          "description": "Convert CSS gradient code into downloadable high-resolution PNG or JPG images in the browser — not a copy-only CSS generator.",
+          "applicationCategory": "DesignApplication",
+          "operatingSystem": "Any",
+          "browserRequirements": "Requires JavaScript and HTML5 Canvas",
+          "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+          },
+          "featureList": [
+            "Download CSS gradients as PNG or JPG",
+            "linear-gradient, radial-gradient, and conic-gradient support",
+            "Custom resolution up to 8K",
+            "Live preview",
+            "Turkish and English UI"
+          ],
+          "inLanguage": ["en", "tr"],
+          "isAccessibleForFree": true,
+          "publisher": { "@id": "https://css2img.vercel.app/#organization" }
+        },
+        {
+          "@type": "FAQPage",
+          "@id": "https://css2img.vercel.app/#faq",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How is CSS2Image different from CSS gradient generators?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Most tools like CSS gradient makers only help you pick colors and copy CSS code. CSS2Image takes your gradient CSS and exports a real PNG or JPG image file you can use as a background, social graphic, or design asset."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I download a CSS gradient as a PNG?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes. Paste your linear-gradient, radial-gradient, or conic-gradient code, choose width and height (up to 8K), select PNG, and click Download Image. Everything runs in your browser."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need to sign up or upload my CSS?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. CSS2Image is free, ad-free, and fully client-side. Your gradient code never leaves your device."
+              }
+            }
+          ]
+        }
+      ]
     }
     </script>
 </head>
@@ -85,7 +141,7 @@
             <div class="brand-block">
                 <p class="brand" id="brandName">CSS2Image</p>
                 <h1 id="pageHeading" class="tagline">
-                    CSS gradyanını yüksek çözünürlüklü PNG veya JPG olarak indir.
+                    CSS gradyanını PNG veya JPG olarak indir — sadece kod kopyalama değil.
                 </h1>
             </div>
 
@@ -192,31 +248,27 @@
                     <div class="example-grid" role="list">
                         <button type="button" role="listitem"
                             onclick="setGradient('linear-gradient(135deg, #0d7a72 0%, #1a3a4a 100%)')"
-                            class="gradient-example"
-                            style="background: linear-gradient(135deg, #0d7a72 0%, #1a3a4a 100%);"
+                            class="gradient-example gradient-example--teal"
                             aria-label="Teal Depth"></button>
                         <button type="button" role="listitem"
                             onclick="setGradient('linear-gradient(90deg, #e85d4c, #1a3a4a)')"
-                            class="gradient-example" style="background: linear-gradient(90deg, #e85d4c, #1a3a4a);"
+                            class="gradient-example gradient-example--coral"
                             aria-label="Coral Ink"></button>
                         <button type="button" role="listitem"
                             onclick="setGradient('linear-gradient(45deg, #00c9ff, #92fe9d)')"
-                            class="gradient-example" style="background: linear-gradient(45deg, #00c9ff, #92fe9d);"
+                            class="gradient-example gradient-example--ocean"
                             aria-label="Ocean Breeze"></button>
                         <button type="button" role="listitem"
                             onclick="setGradient('radial-gradient(circle, #ff9a9e 0%, #fecfef 100%)')"
-                            class="gradient-example"
-                            style="background: radial-gradient(circle, #ff9a9e 0%, #fecfef 100%);"
+                            class="gradient-example gradient-example--pink"
                             aria-label="Soft Pink"></button>
                         <button type="button" role="listitem"
                             onclick="setGradient('conic-gradient(from 0deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000)')"
-                            class="gradient-example"
-                            style="background: conic-gradient(from 0deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);"
+                            class="gradient-example gradient-example--rainbow"
                             aria-label="Rainbow"></button>
                         <button type="button" role="listitem"
                             onclick="setGradient('linear-gradient(180deg, #0f1419, #1a3a4a, #0d7a72)')"
-                            class="gradient-example"
-                            style="background: linear-gradient(180deg, #0f1419, #1a3a4a, #0d7a72);"
+                            class="gradient-example gradient-example--night"
                             aria-label="Night Teal"></button>
                     </div>
                 </div>
@@ -233,7 +285,6 @@
                     <div id="previewStage" class="preview-stage">
                         <div class="checkerboard" aria-hidden="true"></div>
                         <div id="previewBox" class="preview-box"
-                            style="background: linear-gradient(135deg, #0d7a72 0%, #1a3a4a 100%);"
                             role="img" aria-label="Gradient preview"></div>
                     </div>
 
@@ -255,8 +306,39 @@
             </section>
         </main>
 
+        <section class="learn" aria-labelledby="learnTitle">
+            <h2 id="learnTitle" class="learn-title">CSS to image: gerçek PNG/JPG indir</h2>
+            <p id="learnLead" class="learn-lead">
+                Çoğu CSS gradyan aracı sadece renk seçtirip kod kopyalatır.
+                CSS2Image farklıdır: gradyan kodunu yapıştırır, çözünürlük seçer ve görseli PNG veya JPG dosyası olarak indirirsin.
+            </p>
+
+            <h3 id="howTitle" class="learn-subtitle">Nasıl kullanılır?</h3>
+            <ol class="learn-steps">
+                <li id="howStep1">CSS <code>linear-gradient</code>, <code>radial-gradient</code> veya <code>conic-gradient</code> kodunu yapıştır.</li>
+                <li id="howStep2">Genişlik ve yüksekliği seç (1080p’den 8K’ya kadar).</li>
+                <li id="howStep3">PNG veya JPG seçip Görseli İndir’e tıkla — tarayıcıda, kayıt olmadan.</li>
+            </ol>
+
+            <h3 id="faqTitle" class="learn-subtitle">Sık sorulanlar</h3>
+            <dl class="faq">
+                <div class="faq-item">
+                    <dt id="faqQ1">CSS gradyan üreteçlerinden farkı ne?</dt>
+                    <dd id="faqA1">Üreteçler genelde sadece CSS kopyalatır. CSS2Image gradyanı gerçek PNG veya JPG dosyasına dönüştürür; arka plan, sosyal görsel veya tasarım varlığı olarak kullanabilirsin.</dd>
+                </div>
+                <div class="faq-item">
+                    <dt id="faqQ2">CSS gradyanını PNG olarak indirebilir miyim?</dt>
+                    <dd id="faqA2">Evet. Kodu yapıştır, boyutu seç, PNG’yi işaretle ve indir. linear, radial ve conic gradyanlar desteklenir.</dd>
+                </div>
+                <div class="faq-item">
+                    <dt id="faqQ3">Üyelik veya sunucuya yükleme var mı?</dt>
+                    <dd id="faqA3">Hayır. Ücretsiz, reklamsız ve tamamen istemci tarafında çalışır; kodun cihazından çıkmaz.</dd>
+                </div>
+            </dl>
+        </section>
+
         <footer class="site-footer">
-            <p id="footerText">CSS2Image — client-side CSS gradient exporter</p>
+            <p id="footerText">CSS2Image — CSS to image: tarayıcıda PNG/JPG indir</p>
         </footer>
     </div>
 

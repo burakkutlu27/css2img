@@ -1,0 +1,29 @@
+# CSS2Image
+
+> Free browser tool that converts CSS gradient code into downloadable PNG or JPG images.
+
+CSS2Image is not a CSS gradient generator. Most tools (color pickers / gradient makers) only help you create CSS and copy it. This site does the reverse for export: paste existing `linear-gradient`, `radial-gradient`, or `conic-gradient` CSS, choose resolution (up to 8K), and download a real image file — entirely client-side, no signup, no server upload.
+
+## Primary use cases
+
+- CSS to image / CSS to image download
+- Export a CSS gradient background as PNG or JPG
+- Create wallpaper or social-sized gradient assets from CSS you already have
+
+## Site
+
+- Home: https://css2img.vercel.app/
+- Canonical: https://css2img.vercel.app/
+
+## Features
+
+- Paste CSS gradient code; live preview
+- PNG (transparency) or JPG export
+- Presets from 1080×1080 through 8K (7680×4320)
+- Turkish and English UI
+- Runs in the browser via HTML5 Canvas
+
+## Optional
+
+- Sitemap: https://css2img.vercel.app/sitemap.xml
+- robots: https://css2img.vercel.app/robots.txt

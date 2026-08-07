@@ -80,7 +80,7 @@ body {
 
 .tagline {
     margin: 0;
-    max-width: 28ch;
+    max-width: 36ch;
     font-size: clamp(1rem, 2vw, 1.2rem);
     font-weight: 500;
     color: var(--ink-soft);
@@ -410,6 +410,30 @@ input[type="radio"]:checked::after {
     transition: transform 0.2s var(--ease), border-color 0.2s var(--ease);
 }
 
+.gradient-example--teal {
+    background: linear-gradient(135deg, #0d7a72 0%, #1a3a4a 100%);
+}
+
+.gradient-example--coral {
+    background: linear-gradient(90deg, #e85d4c, #1a3a4a);
+}
+
+.gradient-example--ocean {
+    background: linear-gradient(45deg, #00c9ff, #92fe9d);
+}
+
+.gradient-example--pink {
+    background: radial-gradient(circle, #ff9a9e 0%, #fecfef 100%);
+}
+
+.gradient-example--rainbow {
+    background: conic-gradient(from 0deg, #ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #9400d3, #ff0000);
+}
+
+.gradient-example--night {
+    background: linear-gradient(180deg, #0f1419, #1a3a4a, #0d7a72);
+}
+
 .gradient-example:hover,
 .gradient-example:focus-visible {
     transform: scale(1.04);
@@ -448,6 +472,7 @@ input[type="radio"]:checked::after {
     width: 100%;
     aspect-ratio: 16 / 9;
     border-radius: 8px;
+    background: linear-gradient(135deg, #0d7a72 0%, #1a3a4a 100%);
     box-shadow: 0 16px 40px rgba(18, 21, 26, 0.18);
     transition: background 0.25s var(--ease), opacity 0.25s var(--ease);
 }
@@ -501,6 +526,76 @@ input[type="radio"]:checked::after {
 
 .tips li + li {
     margin-top: 0.3rem;
+}
+
+/* SEO / learn — below tool, not in hero */
+.learn {
+    margin-top: 2.75rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--line);
+    max-width: 42rem;
+    animation: rise 0.65s var(--ease) 0.08s both;
+}
+
+.learn-title {
+    margin: 0 0 0.65rem;
+    font-size: clamp(1.25rem, 2.5vw, 1.55rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+}
+
+.learn-lead {
+    margin: 0 0 1.5rem;
+    color: var(--ink-soft);
+    font-size: 0.98rem;
+    line-height: 1.65;
+}
+
+.learn-subtitle {
+    margin: 0 0 0.55rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.learn-steps {
+    margin: 0 0 1.75rem;
+    padding-left: 1.25rem;
+    color: var(--ink-soft);
+    font-size: 0.92rem;
+    line-height: 1.6;
+}
+
+.learn-steps li + li {
+    margin-top: 0.4rem;
+}
+
+.faq {
+    margin: 0;
+}
+
+.faq-item {
+    padding: 0.85rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.faq-item:first-child {
+    border-top: 1px solid var(--line);
+}
+
+.faq-item dt {
+    margin: 0 0 0.35rem;
+    font-weight: 700;
+    font-size: 0.92rem;
+    color: var(--ink);
+}
+
+.faq-item dd {
+    margin: 0;
+    color: var(--muted);
+    font-size: 0.88rem;
+    line-height: 1.55;
 }
 
 .banner {
