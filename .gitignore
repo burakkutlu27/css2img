@@ -1,0 +1,49 @@
+# OS
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Editors / IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+*.sublime-project
+*.sublime-workspace
+
+# Env & secrets
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+
+# Logs & debug
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Dependencies & build (if added later)
+node_modules/
+dist/
+build/
+.cache/
+.parcel-cache/
+.turbo/
+
+# Hosting / local tooling
+.vercel
+.netlify
+*.local
+
+# Optional local notes (keep out of public repo)
+master-prompt-proje-canlandirma.md
