@@ -1,7 +1,7 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://css2img.vercel.app/sitemap.xml
+Sitemap: https://css2img.burakkutlu.com/sitemap.xml
 
 # AI / LLM discovery
-# https://css2img.vercel.app/llms.txt
+# https://css2img.burakkutlu.com/llms.txt

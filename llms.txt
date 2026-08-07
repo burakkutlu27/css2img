@@ -12,8 +12,8 @@ CSS2Image is not a CSS gradient generator. Most tools (color pickers / gradient 
 
 ## Site
 
-- Home: https://css2img.vercel.app/
-- Canonical: https://css2img.vercel.app/
+- Home: https://css2img.burakkutlu.com/
+- Canonical: https://css2img.burakkutlu.com/
 
 ## Features
 
@@ -25,5 +25,5 @@ CSS2Image is not a CSS gradient generator. Most tools (color pickers / gradient 
 
 ## Optional
 
-- Sitemap: https://css2img.vercel.app/sitemap.xml
-- robots: https://css2img.vercel.app/robots.txt
+- Sitemap: https://css2img.burakkutlu.com/sitemap.xml
+- robots: https://css2img.burakkutlu.com/robots.txt
